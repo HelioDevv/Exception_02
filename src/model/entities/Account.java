@@ -56,8 +56,11 @@ public class Account {
 		
 		double withdraw = sc.nextDouble();
 		
+		if(getBalance() == 0.0) {
+			throw new DomainException("Without money in the account");
+		}
 		if(withdraw > getWithdrawLimit()) {
-			throw new DomainException("amount invalid");
+			throw new DomainException("The amount exceeds withdraw limit");
 		}
 		
 		balance -= withdraw;
@@ -66,6 +69,6 @@ public class Account {
 	
 	public String toString() {
 		return "New balance: "
-				+ getBalance();
+				+ String.format("%.2f", getBalance());
 	}
 }

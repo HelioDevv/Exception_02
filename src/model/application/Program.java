@@ -32,7 +32,7 @@ public class Program {
 			System.out.println(account);
 		}
 		catch(RuntimeException e) {
-			System.out.println("Unexpected error ");
+			System.out.println("Withdraw error: " + e.getMessage());
 		}
 		
 		sc.close();
